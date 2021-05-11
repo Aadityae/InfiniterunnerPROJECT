@@ -1,6 +1,7 @@
 var PLAY = 1;
 var END = 0;
 var gameState = PLAY;
+var space
 
 var trex, trex_running, trex_collided;
 var ground, invisibleGround, groundImage;
@@ -9,14 +10,14 @@ var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
 
 var score=0;
-
+var back_groundimg
 var gameOver, restart;
 
 
 
 function preload(){
-  trex_running =   loadAnimation("trex1.png","trex3.png","trex4.png");
-  trex_collided = loadAnimation("trex_collided.png");
+  trex_running =  loadAnimation("Run_1.png","Run_2.png","Run_3.png");
+  trex_collided = loadAnimation("Run_4.png");
   
   groundImage = loadImage("ground2.png");
   
@@ -31,6 +32,7 @@ function preload(){
   
   gameOverImg = loadImage("gameOver.png");
   restartImg = loadImage("restart.png");
+  back_groundimg = loadImage("background0.png")
 }
 
 function setup() {
@@ -70,7 +72,7 @@ function setup() {
 
 function draw() {
   //trex.debug = true;
-  background(255);
+  background(back_groundimg);
   text("Score: "+ score, 500,50);
   
   if (gameState===PLAY){
